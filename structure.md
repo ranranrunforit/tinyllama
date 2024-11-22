@@ -1,4 +1,4 @@
-# Structure of LlamaHW
+# Structure of tinyLlama
 
 ## llama.py
 This file contains the Llama2 model whose backbone is the [transformer](https://arxiv.org/pdf/1706.03762.pdf). We recommend walking through Section 3 of the paper to understand each component of the transformer. 
@@ -35,7 +35,7 @@ The desired outputs are
 1. ```logits```: logits (output scores) over the vocabulary, predicting the next possible token at each point
 2. ```hidden_state```: the final hidden state at each token in the given document
 
-### To be implemented
+### implemented
 Components that require your implementations are comment with ```#todo```. The detailed instructions can be found in their corresponding code blocks
 * ```llama.Attention.forward```
 * ```llama.RMSNorm.norm```
@@ -60,14 +60,14 @@ This file contains the pipeline to
 * fine-tune the Llama2 model on the downstream tasks (e.g. sentence classification)
 
 
-### LlamaSentClassifier (to be implemented)
+### LlamaSentClassifier (implemented)
 This class is used to
 * encode the sentences using Llama2 to obtain the hidden representation from the final word of the sentence.
 * classify the sentence by applying dropout to the pooled-output and project it using a linear layer.
 
-## optimizer.py  (to be implemented)
+## optimizer.py  (implemented)
 This is where `AdamW` is defined.
-You will need to update the `step()` function based on [Decoupled Weight Decay Regularization](https://arxiv.org/abs/1711.05101) and [Adam: A Method for Stochastic Optimization](https://arxiv.org/abs/1412.6980).
+update the `step()` function based on [Decoupled Weight Decay Regularization](https://arxiv.org/abs/1711.05101) and [Adam: A Method for Stochastic Optimization](https://arxiv.org/abs/1412.6980).
 There are a few slight variations on AdamW, pleae note the following:
 - The reference uses the "efficient" method of computing the bias correction mentioned at the end of section 2 "Algorithm" in Kigma & Ba (2014) in place of the intermediate m hat and v hat method.
 - The learning rate is incorporated into the weight decay update (unlike Loshchiloc & Hutter (2017)).
@@ -75,8 +75,8 @@ There are a few slight variations on AdamW, pleae note the following:
 
 You can check your optimizer implementation using `optimizer_test.py`.
 
-## rope.py (to be implemented)
-Here, you will implement rotary positional embeddings. This may be tricky; you can refer to slide 22 in https://phontron.com/class/anlp2024/assets/slides/anlp-05-transformers.pdf and Section 3 in https://arxiv.org/abs/2104.09864 for reference. To enable you to test this component modularly, we've provided a unit test at `RoPE_test.py`
+## rope.py (implemented)
+Here, implement rotary positional embeddings. This may be tricky; you can refer to slide 22 in https://phontron.com/class/anlp2024/assets/slides/anlp-05-transformers.pdf and Section 3 in https://arxiv.org/abs/2104.09864 for reference. To enable you to test this component modularly, we've provided a unit test at `RoPE_test.py`
 
 ## base_llama.py
 This is the base class for the Llama model. You won't need to modify this file in this assignment.
