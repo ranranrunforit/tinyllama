@@ -36,7 +36,7 @@ The desired outputs are
 2. ```hidden_state```: the final hidden state at each token in the given document
 
 ### implemented
-Components that require your implementations are comment with ```#todo```. The detailed instructions can be found in their corresponding code blocks
+The detailed instructions can be found in their corresponding code blocks
 * ```llama.Attention.forward```
 * ```llama.RMSNorm.norm```
 * ```llama.Llama.forward```
@@ -46,9 +46,6 @@ Components that require your implementations are comment with ```#todo```. The d
 * ```classifier.LlamaEmbeddingClassifier.forward```
 
 *ATTENTION:* you are free to re-organize the functions inside each class, but please don't change the variable names that correspond to Llama2 parameters. The change to these variable names will fail to load the pre-trained weights.
-
-### Sanity check (Llama forward pass integration test)
-We provide a sanity check function at sanity_check.py to test your Llama implementation. It will reload two embeddings we computed with our reference implementation and check whether your implementation outputs match ours.
 
 
 ## classifier.py
@@ -79,16 +76,16 @@ You can check your optimizer implementation using `optimizer_test.py`.
 Here, implement rotary positional embeddings. This may be tricky; you can refer to slide 22 in https://phontron.com/class/anlp2024/assets/slides/anlp-05-transformers.pdf and Section 3 in https://arxiv.org/abs/2104.09864 for reference. To enable you to test this component modularly, we've provided a unit test at `RoPE_test.py`
 
 ## base_llama.py
-This is the base class for the Llama model. You won't need to modify this file in this assignment.
+This is the base class for the Llama model. 
 
 ## tokenizer.py
-This is the tokenizer we will use. You won't need to modify this file in this assignment.
+This is the tokenizer we will use.
 
 ## config.py
-This is where the configuration class is defined. You won't need to modify this file in this assignment.
+This is where the configuration class is defined. 
 
 ## utils.py
-This file contains utility functions for various purpose. You won't need to modify this file in this assignment.
+This file contains utility functions for various purpose. 
  
 ## Reference
 [Vaswani el at. + 2017] Attention is all you need https://arxiv.org/abs/1706.03762
